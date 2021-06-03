@@ -1,6 +1,6 @@
 * {
   font-family: 'Open Sans', sans-serif;
-  border: 0px dotted lime;
+  border: 1px dotted lime;
 }
 
 body {
@@ -12,14 +12,22 @@ body {
 
 nav {
   background-color: #1f1f3d;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  /* justify-content: flex-start; */
 }
 
 h1 {
   color: #e9e9f3;
+  font-size: 16px;
+  padding-left: 15px;
 }
 
 h2 {
   color: #bfbfdd;
+  font-size: 12px;
+  padding-left: 15px;
 }
 
 .filter-show {
@@ -35,4 +43,6 @@ h2 {
 .show-button {
   color: #bfbfdd;
   background-color: #5356a4;
+  padding: 6px 10px;
+  font-weight: bold;
 }
