@@ -46,3 +46,60 @@ h2 {
   padding: 6px 10px;
   font-weight: bold;
 }
+
+main {
+  width: 75%;
+  background-color: #a9aad2;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  width: 375px;
+  height: 45px;
+}
+
+.body {
+  width: 375px;
+  height: 90px;
+}
+
+label {
+
+  color: #1f1f3d;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.title-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.save-button {
+  width: 381px;
+  height: 45px;
+  margin: 25px;
+}
+
+.search-field {
+  display: flex;
+  justify-content: center;
+}
+
+.magnifying-glass {
+  background-color: #1f1f3d;
+  width: 45px;
+  height: 45px;
+}
+
+.search-box {
+  width: 330px;
+  height: 45px;
+  color: #1f1f3d;
+}
