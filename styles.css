@@ -3,6 +3,14 @@
   border: 1px dotted lime;
 }
 
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   display: flex;
   height: 100vh;
@@ -15,6 +23,7 @@ nav {
   display: flex;
   flex-direction: column;
   width: 25%;
+  height: 100vh;
   /* justify-content: flex-start; */
 }
 
@@ -79,6 +88,10 @@ label {
   margin-bottom: 5px;
 }
 
+main {
+  height: 100vh;
+}
+
 .title-label {
   display: flex;
   flex-direction: column;
@@ -115,4 +128,55 @@ label {
   color: #1f1f3d;
   font-size: 15;
   padding-left: 5px;
+}
+
+.idea-display {
+  background-color: #eaeaf4;
+}
+
+.idea-box {
+  width: 245px;
+  height: 265px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  background-color: #1f1f3d;
+  display: flex;
+  justify-content: space-between;
+}
+
+.star {
+  width: 38px;
+  display: none;
+}
+
+.star-checked {
+  width: 38px;
+}
+
+.delete-icon {
+  width: 38px;
+}
+
+.idea-body {
+  height: 100%;
+}
+
+h3 {
+}
+
+p {
+}
+
+footer {
+  background-color: #5356a4;
+  display: flex;
+  height: 42px;
+}
+
+.add-comment {
+  width: 38px;
 }
