@@ -63,6 +63,7 @@ h2 {
   margin-bottom: 10px;
   font-size: 20px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 main {
@@ -119,6 +120,13 @@ main {
   font-weight: bold;
   border: 2px solid #6d70b1;
   border-radius: 3px;
+  cursor: pointer;
+}
+
+.no-button {
+  background-color: #eaeaf4;
+  color: #1f1f3d;
+  cursor: no-drop;
 }
 
 .search-field {
@@ -126,6 +134,7 @@ main {
   justify-content: center;
   border: 2px solid #6d70b1;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .magnifying-glass {
@@ -134,6 +143,7 @@ main {
   padding: 5px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
+  cursor: pointer;
 }
 
 .search-box {
@@ -170,15 +180,18 @@ header {
 
 .star {
   width: 38px;
-  display: none;
+  cursor: pointer;
 }
 
 .star-checked {
   width: 38px;
+  display: none;
+  cursor: pointer;
 }
 
 .delete-icon {
   width: 38px;
+  cursor: pointer;
 }
 
 .idea-body {
@@ -206,6 +219,7 @@ footer {
 
 .add-comment {
   width: 38px;
+  cursor: pointer;
 }
 
 .comment {
