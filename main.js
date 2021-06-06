@@ -29,7 +29,9 @@ function verifyInput() {
  if (titleInput.value && bodyInput.value) {
    buttonSave.disabled = false;
    buttonSave.classList.remove('no-button');
-  }
+ } else {
+   buttonSave.classList.add('no-button');
+ }
 }
 
 function createNewIdea(event) {
@@ -53,6 +55,7 @@ function createNewIdea(event) {
   }
   titleInput.value = ''
   bodyInput.value = ''
+  verifyInput();
 }
 
 function deleteIdea() {
@@ -64,5 +67,9 @@ function deleteIdea() {
 function favoriteIdea(event) {
   if (event.target.className === 'star') {
     event.target.src = './assets/star-active.svg';
+    event.target.classList.add('active');
+  } else if (event.target.className === 'star active') {
+    event.target.src = './assets/star.svg';
+    event.target.classList.remove('active');
   }
 }
