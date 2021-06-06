@@ -183,12 +183,6 @@ header {
   cursor: pointer;
 }
 
-.star-checked {
-  width: 38px;
-  display: none;
-  cursor: pointer;
-}
-
 .delete-icon {
   width: 38px;
   cursor: pointer;
