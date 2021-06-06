@@ -8,7 +8,7 @@ var bodyOutput = document.querySelector('.body-text');
 var cardDisplay = document.querySelector('.idea-display');
 var ideaInput = document.querySelector('.title-label');
 var buttonDelete = document.querySelector('.delete-icon');
-var ideaBox = document.querySelector('.idea-box');
+var buttonNotFavorite = document.querySelector('.star');
 
 // global variables
 
@@ -20,6 +20,8 @@ buttonSave.addEventListener('click', createNewIdea);
 ideaInput.addEventListener('input', verifyInput);
 cardDisplay.addEventListener('click', function(event) {
   deleteIdea(event)});
+cardDisplay.addEventListener('click', function(event) {
+  favoriteIdea(event)});
 
 
 // Functions
@@ -37,7 +39,6 @@ function createNewIdea(event) {
     cardDisplay.innerHTML += `<article class="idea-box">
     <header>
       <img src="./assets/star.svg" class="star" alt="star">
-      <img src="./assets/star-active.svg" class="star-checked" alt="star-checked">
       <img src="./assets/delete.svg" class="delete-icon" alt="delete-icon">
     </header>
     <div class="idea-body">
@@ -59,5 +60,9 @@ function deleteIdea() {
     event.target.closest('article').remove();
   }
 }
-// if titleInput.value || bodyInput.value === undefined
-// then classList.add ${save button??} hover
+
+function favoriteIdea(event) {
+  if (event.target.className === 'star') {
+    event.target.src = './assets/star-active.svg';
+  }
+}
