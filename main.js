@@ -12,11 +12,12 @@ var buttonNotFavorite = document.querySelector('.star');
 
 // global variables
 
+var ideaList = []
+var testIdea;
 
 // event Listeners!
-window.onload = (cardDisplay.innerHTML = '');
-buttonSave.addEventListener('hover', verifyInput);
-buttonSave.addEventListener('click', createNewIdea);
+window.onload = (cardDisplay.innerHTML = ''); // get the local storage here instead?
+buttonSave.addEventListener('click', saveIdea);
 ideaInput.addEventListener('input', verifyInput);
 cardDisplay.addEventListener('click', function(event) {
   deleteIdea(event)});
@@ -31,21 +32,30 @@ function verifyInput() {
    buttonSave.classList.remove('no-button');
  } else {
    buttonSave.classList.add('no-button');
+   buttonSave.disabled = true;
  }
 }
 
-function createNewIdea(event) {
+function saveIdea(event) {
   event.preventDefault()
-  if (titleInput.value && bodyInput.value) {
-    buttonSave.disabled = false;
-    cardDisplay.innerHTML += `<article class="idea-box">
+  testIdea = new Idea (titleInput.value, bodyInput.value);
+  testIdea.saveToStorage();
+  ideaList.push(testIdea)
+  renderIdeas();
+}
+
+function renderIdeas() {
+  // debugger
+  cardDisplay.innerHTML = ''
+  for (var i = 0; i < ideaList.length; i++) {
+     cardDisplay.innerHTML += `<article class="idea-box">
     <header>
-      <img src="./assets/star.svg" class="star" alt="star">
+      <img src="./assets/star.svg" class="star" alt="star" id="${ideaList[i].id}">
       <img src="./assets/delete.svg" class="delete-icon" alt="delete-icon">
     </header>
     <div class="idea-body">
-      <h3>${titleInput.value}</h3>
-      <p class="body-text">${bodyInput.value}</p>
+      <h3>${ideaList[i].title}</h3>
+      <p class="body-text">${ideaList[i].body}</p>
     </div>
     <footer>
       <img src="./assets/comment.svg" class="add-comment" alt="add-comment">
@@ -58,12 +68,19 @@ function createNewIdea(event) {
   verifyInput();
 }
 
-function deleteIdea() {
+function deleteIdea(event) {
   if (event.target.className === 'delete-icon') {
     event.target.closest('article').remove();
   }
 }
 
+// for (var i = 0; i < ideaList.length; i++) {
+//   if (ideaList[i].id === number) {
+//
+//   }
+// }
+// for loop id of clicked === id of index in arry then splice(i,1)
+// localStorage.removeItem.id
 function favoriteIdea(event) {
   if (event.target.className === 'star') {
     event.target.src = './assets/star-active.svg';
