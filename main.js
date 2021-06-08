@@ -16,16 +16,25 @@ var ideaList = []
 var testIdea;
 
 // event Listeners!
-window.onload = (cardDisplay.innerHTML = ''); // get the local storage here instead?
+window.addEventListener('load', getIdeasFromLocalStorage);
 buttonSave.addEventListener('click', saveIdea);
 ideaInput.addEventListener('input', verifyInput);
 cardDisplay.addEventListener('click', function(event) {
   deleteIdea(event)});
 cardDisplay.addEventListener('click', function(event) {
   favoriteIdea(event)});
+cardDisplay.addEventListener('click', function(event) {
+  removeIdea(event)});
 
 
 // Functions
+function getIdeasFromLocalStorage() {
+  ideaList = JSON.parse(localStorage.getItem('data'));
+  if (ideaList) {
+    console.log(ideaList);
+    renderIdeas();
+  }
+}
 function verifyInput() {
  if (titleInput.value && bodyInput.value) {
    buttonSave.disabled = false;
@@ -37,10 +46,10 @@ function verifyInput() {
 }
 
 function saveIdea(event) {
-  event.preventDefault()
+  event.preventDefault();
   testIdea = new Idea (titleInput.value, bodyInput.value);
+  ideaList.push(testIdea);
   testIdea.saveToStorage();
-  ideaList.push(testIdea)
   renderIdeas();
 }
 
@@ -51,7 +60,7 @@ function renderIdeas() {
      cardDisplay.innerHTML += `<article class="idea-box">
     <header>
       <img src="./assets/star.svg" class="star" alt="star" id="${ideaList[i].id}">
-      <img src="./assets/delete.svg" class="delete-icon" alt="delete-icon">
+      <img src="./assets/delete.svg" class="delete-icon" id="${ideaList[i].id}" alt="delete-icon">
     </header>
     <div class="idea-body">
       <h3>${ideaList[i].title}</h3>
@@ -70,12 +79,18 @@ function renderIdeas() {
 
 function deleteIdea(event) {
   if (event.target.className === 'delete-icon') {
-    event.target.closest('article').remove();
-  }
+    removeIdea(event);
+    renderIdeas();
 }
+}
+function removeIdea(event) {
+  for (var i = 0; i < ideaList.length; i++) {
+    if (ideaList[i].id === event.target.id) {
+      ideaList.splice(i, 1);
+    }
+  }
+}//   if (ideaList[i].id === number)
 
-// for (var i = 0; i < ideaList.length; i++) {
-//   if (ideaList[i].id === number) {
 //
 //   }
 // }
