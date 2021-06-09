@@ -9,11 +9,12 @@ class Idea {
   saveToStorage() {
     localStorage.setItem('data', JSON.stringify(ideaList));
   }
+
   deleteFromStorage(id) {
     var key = JSON.stringify(this.id);
     localStorage.remove(key);
   }
-  updateIdea() {
 
+  updateIdea() {
   }
 }
